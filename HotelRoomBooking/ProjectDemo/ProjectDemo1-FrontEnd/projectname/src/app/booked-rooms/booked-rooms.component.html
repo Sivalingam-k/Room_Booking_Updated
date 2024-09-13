@@ -1,0 +1,33 @@
+<div *ngIf="loading" class="text-center">Loading...</div>
+<div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+<div *ngIf="!loading && !error" class="container">
+  <div class="row">
+    <div *ngFor="let room of bookedRooms" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-image">
+          <img [src]="room.imagePath" class="card-img-top" alt="Room image">
+          <div class="booked-badge">Booked</div> <!-- Red "Booked" badge -->
+        </div>
+       
+          <div class="card-detail ">
+            <span class="price-label">PRICE : {{ room.price }}</span> 
+          
+            <span class="price-label">RATING : {{ room.rating }}</span>
+            <span class="price-label">LOCATION : {{ room.location }}</span>
+            <span class="price-label">DESCRIPTION : {{ room.description}}</span>
+             <span class="price-label">AMENTIES : {{ room.amenities}}</span>
+             <span class="price-label">AMENTIES : {{ room.roomType}}</span>
+            
+          </div>
+       
+        <div class="card-footer">
+          <small class="text-white"></small>
+         
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-danger w-100" (click)="cancelBooking(room.roomNumber)">Cancel Booking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
